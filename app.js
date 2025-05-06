@@ -1,4 +1,4 @@
-const API_URL = "https://your-server.zrok.io/api";  
+const API_URL = "https://bzq9e83pn68q.share.zrok.io/";  
 
 async function fetchData() {  
     try {  
