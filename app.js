@@ -1,4 +1,4 @@
-const API_URL = "https://bzq9e83pn68q.share.zrok.io/";  
+const BACKEND_URL = "https://bzq9e83pn68q.share.zrok.io";  
 
 async function fetchFromBackend() {
     const path = window.location.pathname; // Получаем текущий путь (/site, /api, etc.)
