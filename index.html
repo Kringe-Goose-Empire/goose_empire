@@ -1,11 +1,163 @@
-<!DOCTYPE html>  
-<html>  
-<head>  
-    <title>Цифровая страна</title>  
-    <script src="app.js"></script>  
-</head>  
-<body>  
-    <h1>Добро пожаловать!</h1>  
-    <div id="data">Загрузка...</div>  
-</body>  
-</html>  
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Священная Гусиная Империя - Загрузка</title>
+    <style>
+        :root {
+            --imperial-red: #c00;
+            --imperial-black: #1a1a1a;
+            --imperial-gold: #d4af37;
+            --imperial-white: #f8f8f8;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: var(--imperial-black);
+            color: var(--imperial-white);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('imperial-pattern.png');
+            background-size: 300px;
+            background-blend-mode: overlay;
+        }
+        
+        .imperial-header {
+            text-align: center;
+            padding: 40px 20px;
+            width: 100%;
+            background: linear-gradient(to bottom, var(--imperial-black), rgba(26, 26, 26, 0.8));
+            border-bottom: 3px solid var(--imperial-red);
+            position: relative;
+        }
+        
+        .imperial-header h1 {
+            color: var(--imperial-gold);
+            font-size: 2.8rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        .imperial-header h1::before, 
+        .imperial-header h1::after {
+            content: "🪿";
+            margin: 0 15px;
+        }
+        
+        .imperial-content {
+            max-width: 800px;
+            padding: 30px;
+            margin: 40px 20px;
+            background-color: rgba(26, 26, 26, 0.9);
+            border: 3px solid var(--imperial-red);
+            box-shadow: 0 0 30px rgba(200, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+        
+        #data {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            padding: 20px;
+            border: 1px dashed var(--imperial-gold);
+            background-color: rgba(0, 0, 0, 0.3);
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .imperial-seal {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 100px;
+            height: 100px;
+            background-color: var(--imperial-black);
+            border: 3px solid var(--imperial-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transform: rotate(15deg);
+            opacity: 0.8;
+        }
+        
+        .loading-animation {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--imperial-gold);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .imperial-footer {
+            margin-top: auto;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid var(--imperial-red);
+        }
+        
+        @media (max-width: 600px) {
+            .imperial-header h1 {
+                font-size: 2rem;
+            }
+            
+            .imperial-header h1::before, 
+            .imperial-header h1::after {
+                margin: 0 5px;
+            }
+            
+            .imperial-content {
+                padding: 20px;
+                margin: 20px 10px;
+            }
+            
+            .imperial-seal {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: -20px;
+                right: -20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="imperial-header">
+        <h1>Священная Гусиная Империя</h1>
+    </header>
+    
+    <main class="imperial-content">
+        <h2>Цифровое Государство</h2>
+        <div id="data">
+            <span class="loading-animation"></span>
+            Инициализация Имперских систем...
+        </div>
+        <div class="imperial-seal">🪿</div>
+    </main>
+    
+    <footer class="imperial-footer">
+        © 2025 Священная Гусиная Империя. Все права защищены.
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
