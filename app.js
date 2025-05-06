@@ -1,15 +1,22 @@
 const API_URL = "https://bzq9e83pn68q.share.zrok.io/";  
 
-async function fetchData() {  
-    try {  
-        const response = await fetch(API_URL);  
-        if (!response.ok) throw new Error("Сервер не отвечает");  
-        const data = await response.json();  
-        document.getElementById("data").innerText = JSON.stringify(data);  
-    } catch (error) {  
-        // Если сервер упал – показываем заглушку  
-        window.location.href = "fallback.html";  
-    }  
-}  
+async function fetchFromBackend() {
+    const path = window.location.pathname; // Получаем текущий путь (/site, /api, etc.)
+    
+    try {
+        const response = await fetch(`${BACKEND_URL}${path}`);
+        
+        if (!response.ok) {
+            throw new Error(`Ошибка ${response.status}`);
+        }
+        
+        const data = await response.json();
+        document.getElementById("response").innerText = JSON.stringify(data, null, 2);
+    } catch (error) {
+        console.error("Ошибка:", error);
+        window.location.href = "fallback.html"; // Перенаправление на заглушку
+    }
+}
 
-fetchData();  
+// Запускаем при загрузке страницы
+fetchFromBackend();
