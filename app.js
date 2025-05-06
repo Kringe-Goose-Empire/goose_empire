@@ -14,7 +14,7 @@ async function fetchFromBackend() {
         document.getElementById("response").innerText = JSON.stringify(data, null, 2);
     } catch (error) {
         console.error("Ошибка:", error);
-        window.location.href = "fallback.html"; // Перенаправление на заглушку
+        //window.location.href = "fallback.html"; // Перенаправление на заглушку
     }
 }
 
